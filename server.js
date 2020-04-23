@@ -1,12 +1,14 @@
 // Get our dependencies
 var express = require('express');
 var app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 var mariadb = require("mariadb/callback");
 var connection = mariadb.createConnection({
-  host: process.env.DB_HOST || 'ansrds.cyyo1covxjss.us-east-2.rds.amazonaws.com' || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASS || 'applicationuser',
-  database: process.env.DB_NAME || 'movie_db'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 connection.connect(err => {
@@ -14,6 +16,7 @@ connection.connect(err => {
     console.log("not connected due to error: " + err);
   } else {
     console.log("connected ! connection id is " + connection.threadId);
+    console.log(process.env);
   }
 });
 
