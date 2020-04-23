@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var mariadb = require("mariadb/callback");
 var connection = mariadb.createConnection({
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'ansrds.cyyo1covxjss.us-east-2.rds.amazonaws.com' || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASS || 'applicationuser',
   database: process.env.DB_NAME || 'movie_db'
