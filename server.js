@@ -16,7 +16,7 @@ connection.connect(err => {
     console.log("not connected due to error: " + err);
   } else {
     console.log("connected ! connection id is " + connection.threadId);
-    console.log(process.env);
+    // console.log(process.env);
   }
 });
 
