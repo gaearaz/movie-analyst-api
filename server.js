@@ -29,33 +29,40 @@ function getPublications(callback) {  connection.query("SELECT * FROM publicatio
 function getPendings(callback) {  connection.query("SELECT * FROM pending", (err, rows) => callback(err, rows))}
 
 //Testing endpoint
-app.get('/', function (req, res) {
-  var response = [{ response: 'hello' }, { code: '200' }]
-  res.json(response);
-})
+// app.get('/', function (req, res) {
+//   var response = [{ response: 'hello' }, { code: '200' }]
+//   res.json(response);
+// })
 
 app.get('/movies', function (req, res) {
   getMovies(function (err, moviesResult) {
     if (err) throw err;
     res.json(moviesResult);
+    console.log(moviesResult);
   })})
 
 app.get('/reviewers', function (req, res) {
   getReviewers(function (err, reviewersResult) {
     if (err) throw err;
     res.json(reviewersResult);
+    console.log(reviewersResult);
+
   })})
 
 app.get('/publications', function (req, res) {
   getPublications(function (err, publicationsResult) {
     if (err) throw err;
     res.json(publicationsResult);
+    console.log(publicationsResult);
+
   })})
 
 app.get('/pending', function (req, res) {
   getPendings(function (err, pendingsResult) {
     if (err) throw err;
     res.json(pendingsResult);
+    console.log(pendingsResult);
+
   })})
 
 // console.log("server listening through port: " + process.env.PORT);
